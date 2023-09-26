@@ -17,5 +17,13 @@ class Program
         job2._yearStart = 2022;
         job2._yearEnd = 2023;
         job2.DisplayJobDetails();
+
+        Resume resume = new Resume();
+        resume._jobs.Add(job1);
+        resume._jobs.Add(job2);
+        //resume._jobs[0]._jobTitle;
+
+        resume.DisplayResumeDetails();
+
     }
 }
