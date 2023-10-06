@@ -18,7 +18,16 @@ public class Program
             "3. Load \r\n4. Save \r\n5. Quit");
             Console.Write("What would you like to do? ");
             _menueSelection = Console.ReadLine();
-            selection = int.Parse(_menueSelection);
+        //Exceeding requirements, I learned to use a try/catch block because the code throws an error
+        // if a letter is selected. 
+            try
+            {
+                selection = int.Parse(_menueSelection);
+            }
+            catch
+            {
+        
+            }
 
             if(selection == 1)
             {
@@ -37,9 +46,15 @@ public class Program
             {
                 SaveToFile();
             }
-            else
+            else if(selection == 5)
             {
                 return;
+            }
+            //Exceeding requirements: This block prompts the user to enter a number 1-5 if a number other than 1-5, or 
+            //a letter is selected. The try/catch statement keeps the program from throwing an error if a letter is entered.
+            else
+            {
+                Console.WriteLine("Please only enter a number 1-5.");
             }
         }
     }

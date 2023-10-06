@@ -12,6 +12,12 @@ public class PromptGenerator
         _prompts.Add("How did I see the hand of the Lord in my life today?");
         _prompts.Add("What was the strongest emotion I felt today?");
         _prompts.Add("If I had one thing I could do over today, what would it be?");
+        _prompts.Add("What is something I am looking forward to today?");
+        _prompts.Add("What are my goals for the comming week?");
+        _prompts.Add("What is something I did today to help someone else?");
+        _prompts.Add("What is one thing that makes me happy to be alive today?");
+        _prompts.Add("What is something I am grateful for today?");
+        _prompts.Add("What lessons have I learned over the past week?");
 
         Random randIndex = new Random();
         int randomPosIndex = randIndex.Next(_prompts.Count); //returns a positive random number
