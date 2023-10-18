@@ -2,9 +2,13 @@ using System;
 using System.Security.Cryptography;
 
 class Program
-{
+{ //For my exceeds requirements portion I created a while loop in my Scripture class that
+  //prevents the program from repeatedly choosing the same words to hide. 
     static void Main(string[] args)
-    {
+    { //Code to work with a scripture containing multiple verses. To use this code uncomment it, and you need to comment out 
+      //the ref2 object, s2 object, and DisplayShortScripture function call as well as switching th s1 and s2 comments in
+      //the else if statement, and the s1, s2 if statements at the end.
+
     //     Reference ref1 = new Reference("Proverbs ", "3", "5", "6");
 
     //     Scripture s1 = new Scripture(ref1, "Trust in the Lord with all thine heart; and lean not unto thine own understanding." +
@@ -28,7 +32,7 @@ class Program
                 return;
             }
             else if(answer == "")
-            { //will include method call that subs random words for ___ until all words are replaced ie: GetRenderedText()
+            { 
                 Console.Clear();
                 // s1.HideWords();
                 // s1.DisplayScripture();
@@ -43,10 +47,11 @@ class Program
                 Console.WriteLine("Please hit enter or type 'quit'.");
                 answer = Console.ReadLine();
             }
+
             // if(s1.IsCompletelyHidden() == true)
             // {
             //     return;
-            // }
+            //}
             if(s2.IsCompletelyHidden() == true)
             {
                 return;
