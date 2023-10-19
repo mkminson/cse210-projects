@@ -2,7 +2,6 @@ using System;
 
 public class Word
 {
-    //Word - Keeps track of a single word and whether it is shown or hidden.
     private string _word;
     private Boolean _isHidden;
     private string _hiddenWord;
