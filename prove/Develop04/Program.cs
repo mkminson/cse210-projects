@@ -10,11 +10,14 @@ class Program
         Console.WriteLine("    3. Start listing activity");
         Console.WriteLine("    4. Quit");
         Console.Write("Select a choice from the menu: ");
-        
+
         int option = int.Parse(Console.ReadLine());
         if(option == 1)
         {
 
         }
+
+        Activity activity1 = new Activity();
+        activity1.PauseAnimation();
     }
 }
