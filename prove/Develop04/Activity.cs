@@ -13,22 +13,35 @@ public class Activity
 
     }
    
-    public void DisplayStartMessage()
+    public void DisplayStartMessage(string activityName, string activityDescription)
     {
-        Console.WriteLine($"Welcome to the {_activityName}.");
-        Console.WriteLine(_activityDescription);
+        _activityName = activityName;
+        _activityDescription = activityDescription;
+        Console.WriteLine($"Welcome to the {_activityName} Activity.\r\n");
+        Console.WriteLine(_activityDescription + "\r\n");
     }
 
     public void DisplayDurationPrompt()
     {
-        Console.WriteLine("How long, in seconds, would you like for your session? ");
+        Console.Write("How long, in seconds, would you like for your session? ");
         _activityDuration = int.Parse(Console.ReadLine());
     }
 
-    public void PauseAnimation()
+    public int GetActivityDUration()
+    {
+        return _activityDuration;
+    }
+    public void DisplayGetReady()
+    {
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        PauseAnimation(5);
+    }
+
+    public void PauseAnimation(int seconds)
     {
         DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(10);
+        DateTime endTime = startTime.AddSeconds(seconds);
         int i = 0;
         while (DateTime.Now < endTime)
         {
@@ -44,11 +57,21 @@ public class Activity
         }
     }
 
+    public void CountDownTimer(int seconds)
+    {
+        for(int i = seconds; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+    }
+
     public void DisplayEndMessage()
     {
-        Console.WriteLine("Well done!!");
-        PauseAnimation();
-        Console.WriteLine($"You have completed another {_activityDuration} seconds of the {_activityName} activity");
-        PauseAnimation();
+        Console.WriteLine("\r\n\r\nWell done!!");
+        PauseAnimation(5);
+        Console.WriteLine($"You have completed another {_activityDuration} seconds of the {_activityName} Activity.");
+        PauseAnimation(5);
     }
 }
