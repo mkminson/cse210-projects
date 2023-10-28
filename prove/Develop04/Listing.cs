@@ -1,7 +1,16 @@
 using System;
+using System.Runtime.CompilerServices;
 
 public class Listing : Activity
 {
+    private List<string> _listPrompts = new()
+        {
+            "Who are people that you appreciate?",
+            "What are personal strengths of yours?",
+            "Who are people that you have helped this week?",
+            "When have you felt the Holy Ghost this month?",
+            "Who are some of your personal heroes?"
+        };
     public Listing() : base()
     {
 
@@ -22,7 +31,7 @@ public class Listing : Activity
         int responses = 0;
         DateTime endTime = DateTime.Now.AddSeconds(base.GetActivityDUration());
         Console.WriteLine(" ");
-        while(DateTime.Now <= endTime)
+        while (DateTime.Now <= endTime)
         {
             Console.Write(">");
             Console.ReadLine();
@@ -34,18 +43,8 @@ public class Listing : Activity
 
     public void DisplayListPrompt()
     {
-        List<string> listPrompts = new()
-        {
-            "Who are people that you appreciate?",
-            "What are personal strengths of yours?",
-            "Who are people that you have helped this week?",
-            "When have you felt the Holy Ghost this month?",
-            "Who are some of your personal heroes?"
-        };
-
         Random rand = new Random();
-        int randIndex = rand.Next(listPrompts.Count);
-        Console.WriteLine($"\r\n---{listPrompts[randIndex]}---");
-       // base.PauseAnimation(10);
+        int randIndex = rand.Next(_listPrompts.Count);
+        Console.WriteLine($"\r\n---{_listPrompts[randIndex]}---");
     }
 }

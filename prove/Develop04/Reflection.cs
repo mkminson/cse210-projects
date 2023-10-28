@@ -2,6 +2,26 @@ using System;
 
 public class Reflection : Activity
 {
+    private List<string> _prompts = new()
+        {
+            "Think of a time when you stood up for someone else.",
+            "Think of a time when you did something really difficult.",
+            "Think of a time when you helped someone in need.",
+            "Think of a time when you did something truly selfless."
+        };
+
+    private List<string> _questions = new()
+        {
+            "Why was this experience meaningful to you?",
+            "Have you ever done anything like this before?",
+            "How did you get started?",
+            "How did you feel when it was complete?",
+            "What made this time different than other times when you were not as successful?",
+            "What is your favorite thing about this experience?",
+            "What could you learn from this experience that applies to other situations?",
+            "What did you learn about yourself through this experience?",
+            "How can you keep this experience in mind in the future?"
+        };
     public Reflection() : base()
     {
 
@@ -21,49 +41,30 @@ public class Reflection : Activity
         base.CountDownTimer(5);
         Console.Clear();
         DateTime endTime = DateTime.Now.AddSeconds(base.GetActivityDUration());
-        while(DateTime.Now <= endTime)
+        while (DateTime.Now <= endTime)
         {
             DisplayQuestion();
         }
         base.DisplayEndMessage();
     }
-    
+
     public void DisplayPrompt()
     {
         Console.WriteLine("\r\nConsider the following prompt:");
-        List<string> prompts = new()
-        {
-            "Think of a time when you stood up for someone else.",
-            "Think of a time when you did something really difficult.",
-            "Think of a time when you helped someone in need.",
-            "Think of a time when you did something truly selfless."
-        };
+
 
         Random ran = new Random();
-        int randomIndex = ran.Next(prompts.Count);
-        Console.WriteLine($"\r\n---{prompts[randomIndex]}---");
+        int randomIndex = ran.Next(_prompts.Count);
+        Console.WriteLine($"\r\n---{_prompts[randomIndex]}---");
         Console.WriteLine("\r\nWhen you have something in mind, press enter to continue.");
         Console.ReadLine();
     }
 
     public void DisplayQuestion()
     {
-        List<string> questions = new()
-        {
-            "Why was this experience meaningful to you?",
-            "Have you ever done anything like this before?", 
-            "How did you get started?",
-            "How did you feel when it was complete?",
-            "What made this time different than other times when you were not as successful?",
-            "What is your favorite thing about this experience?",
-            "What could you learn from this experience that applies to other situations?",
-            "What did you learn about yourself through this experience?",
-            "How can you keep this experience in mind in the future?"
-        };
-
         Random rand = new Random();
-        int randIndex = rand.Next(questions.Count);
-        Console.Write($"\r\n>{questions[randIndex]}");
+        int randIndex = rand.Next(_questions.Count);
+        Console.Write($"\r\n>{_questions[randIndex]}");
         base.PauseAnimation(10);
     }
 }
