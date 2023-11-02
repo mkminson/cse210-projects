@@ -5,14 +5,13 @@ public class Activity
     private string _activityName = "";
     private string _activityDescription = "";
     private int _activityDuration;
-    private string _finishingMessage = "";
-    private List<string> _animation = new List<string>(){"|", "/", "-", "\\", "|", "/", "-", "\\"};
+    private List<string> _animation = new List<string>() { "|", "/", "-", "\\", "|", "/", "-", "\\" };
 
     public Activity()
     {
 
     }
-   
+
     public void DisplayStartMessage(string activityName, string activityDescription)
     {
         _activityName = activityName;
@@ -50,7 +49,7 @@ public class Activity
             Thread.Sleep(1000);
             Console.Write("\b \b");
             i++;
-            if(i >= _animation.Count)
+            if (i >= _animation.Count)
             {
                 i = 0;
             }
@@ -59,7 +58,7 @@ public class Activity
 
     public void CountDownTimer(int seconds)
     {
-        for(int i = seconds; i > 0; i--)
+        for (int i = seconds; i > 0; i--)
         {
             Console.Write(i);
             Thread.Sleep(1000);
