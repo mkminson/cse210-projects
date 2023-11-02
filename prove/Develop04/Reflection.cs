@@ -51,8 +51,6 @@ public class Reflection : Activity
     public void DisplayPrompt()
     {
         Console.WriteLine("\r\nConsider the following prompt:");
-
-
         Random ran = new Random();
         int randomIndex = ran.Next(_prompts.Count);
         Console.WriteLine($"\r\n---{_prompts[randomIndex]}---");

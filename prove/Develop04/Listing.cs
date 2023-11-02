@@ -31,12 +31,14 @@ public class Listing : Activity
         int responses = 0;
         DateTime endTime = DateTime.Now.AddSeconds(base.GetActivityDUration());
         Console.WriteLine(" ");
+
         while (DateTime.Now <= endTime)
         {
             Console.Write(">");
             Console.ReadLine();
             responses++;
         }
+
         Console.WriteLine($"You listed {responses} items!");
         base.DisplayEndMessage();
     }
