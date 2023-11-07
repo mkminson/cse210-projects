@@ -5,10 +5,13 @@ using System.Formats.Asn1;
 //Add the color member variable and a getter and setter for it.
 //Create a constructor that accepts the color and sets it.
 //Create a virtual method for GetArea().
-public class Shape
+public abstract class Shape
 {
     private string _color;
-    public double area;
+    public Shape(string color)
+    {
+        _color = color;
+    }
 
     public string GetColor()
     {
@@ -20,13 +23,10 @@ public class Shape
         _color = color;
     }
 
-    public Shape(string color)
-    {
-        _color = color;
-    }
-
-    public virtual double GetArea()
-    {
-        return area;
-    }
+    public abstract double GetArea();
+    // public double area;
+    // public virtual double GetArea()
+    // {
+    //     return area;
+    // }
 }
