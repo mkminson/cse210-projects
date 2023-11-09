@@ -29,7 +29,7 @@ class Program
         {
             string color = shape.GetColor();
             double area = shape.GetArea();
-            Console.WriteLine($"The color of your shape is {color}, the area of your shape is {area}.");
+            Console.WriteLine($"The {color} shape has an area of {area}.");
         }
     }
 }
