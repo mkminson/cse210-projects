@@ -15,7 +15,7 @@ class Program
         while (true)
         {
             Console.WriteLine($"\r\nYou have {totalPoints} points.\r\n");
-            Console.WriteLine($"Badges earned: {badges}");
+            Console.WriteLine($"Badges earned: {badges}\r\n");
             Console.WriteLine("Menu options:\r\n    1. Create New Goal\r\n    2. List Goals\r\n    3. Save Goals\r\n    4. Load Goals\r\n" +
             "    5. Record Event\r\n    6. Quit");
             Console.Write("Select a choice from the menu: ");
