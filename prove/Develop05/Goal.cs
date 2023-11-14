@@ -29,11 +29,11 @@ public abstract class Goal
 
     public virtual void SetGoalAttributes()
     {
-        Console.Write("What is the name of your goal?");
+        Console.Write("What is the name of your goal? ");
         _goalName = Console.ReadLine();
-        Console.Write("What is the description of it?");
+        Console.Write("What is the description of it? ");
         _goalDescription = Console.ReadLine();
-        Console.Write("What is the amount of points associated with this goal?");
+        Console.Write("What is the amount of points associated with this goal? ");
         _goalPoints = int.Parse(Console.ReadLine());
     }
 
@@ -41,11 +41,11 @@ public abstract class Goal
     {
         if (_completed == true)
         {
-            Console.Write("[X]");
+            Console.Write("[X] ");
         }
         else
         {
-            Console.Write("[]");
+            Console.Write("[ ] ");
         }
         Console.WriteLine($"{_goalName} ({_goalDescription})");
     }
@@ -61,18 +61,6 @@ public abstract class Goal
     {
         return _goalName;
     }
-    // public string GetDescription()
-    // {
-    //     return _goalDescription;
-    // }
-    // public int GetPoints()
-    // {
-    //     return _goalPoints;
-    // }
-    // public string GetType()
-    // {
-    //     return _type;
-    // }
     public virtual string SaveFileString()
     {
         return _type + ":" + _goalName + ":" + _goalDescription + ":" + _goalPoints;

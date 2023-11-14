@@ -12,10 +12,10 @@ class Program
 
         while (true)
         {
-            Console.WriteLine($"You have {totalPoints} points.");
+            Console.WriteLine($"\r\nYou have {totalPoints} points.\r\n");
             Console.WriteLine("Menu options:\r\n    1. Create New Goal\r\n    2. List Goals\r\n    3. Save Goals\r\n    4. Load Goals\r\n" +
             "    5. Record Event\r\n    6. Quit");
-            Console.Write("Select a choice from the menu:");
+            Console.Write("Select a choice from the menu: ");
 
             selection1 = int.Parse(Console.ReadLine());
 
@@ -25,9 +25,13 @@ class Program
             }
             else if (selection1 == 2)
             {
+                Console.WriteLine("The goals are:");
+                int i = 1;
                 foreach (Goal type in goals)
                 {
+                    Console.Write($"{i}. ");
                     type.DisplayGoal();
+                    i++;
                 }
             }
             else if (selection1 == 3)
@@ -47,12 +51,10 @@ class Program
                 return;
             }
         }
-
     }
-
     public static List<Goal> CreateNewGoal(List<Goal> goals)
     {
-        Console.Write("The types of goals are:\r\n    1. SimpleGoal\r\n    2. Eternal Goal\r\n   3. Checklist Goal\r\nWhich type of goal would you like to create?");
+        Console.Write("The types of goals are:\r\n    1. Simple Goal\r\n    2. Eternal Goal\r\n    3. Checklist Goal\r\nWhich type of goal would you like to create? ");
         int selection2 = 0;
         selection2 = int.Parse(Console.ReadLine());
         if (selection2 == 1)
@@ -78,7 +80,7 @@ class Program
 
     public static void SaveToFile(List<Goal> goals, int totalPoints)
     {
-        Console.Write("What is the file name for the goal file?");
+        Console.Write("What is the file name for the goal file? ");
         string fileName = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
@@ -91,7 +93,8 @@ class Program
     }
     public static void LoadFromFile(List<Goal> goals)
     {
-        Console.WriteLine("What is the file name for the goal file:");
+        goals.Clear();
+        Console.Write("What is the file name for the goal file: ");
         string fileName = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(fileName);
         totalPoints = int.Parse(lines[0]);
@@ -120,11 +123,11 @@ class Program
         Console.WriteLine("The goals are:");
         for (int i = 0; i < goals.Count; i++)
         {
-            Console.WriteLine(i + ". " + goals[i].GetName());
+            Console.WriteLine((i + 1) + ". " + goals[i].GetName());
         }
-        Console.Write($"Which goal did you accomplish?");
+        Console.Write($"Which goal did you accomplish? ");
         int goalChoice = int.Parse(Console.ReadLine());
-        totalPoints += goals[goalChoice].RecordEvent();
+        totalPoints += goals[goalChoice - 1].RecordEvent();
         Console.WriteLine($"You now have {totalPoints} points.");
         return goals;
     }

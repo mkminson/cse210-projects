@@ -8,7 +8,7 @@ public class Simple : Goal
     }
     public Simple(string name, string description, int points, bool completed) : base(name, description, points, completed)
     {
-
+        _type = "SimpleGoal";
     }
     public override int RecordEvent()
     {
