@@ -3,7 +3,9 @@ using System.Runtime.CompilerServices;
 
 class Program
 {
+    //For my exceeds requirements I have added badges that can be earned when the user earns 100, 2500, and 5000 points. 
     public static int totalPoints = 0;
+    public static string badges = "";
     static void Main(string[] args)
     {
         List<Goal> goals = new List<Goal>();
@@ -13,6 +15,7 @@ class Program
         while (true)
         {
             Console.WriteLine($"\r\nYou have {totalPoints} points.\r\n");
+            Console.WriteLine($"Badges earned: {badges}");
             Console.WriteLine("Menu options:\r\n    1. Create New Goal\r\n    2. List Goals\r\n    3. Save Goals\r\n    4. Load Goals\r\n" +
             "    5. Record Event\r\n    6. Quit");
             Console.Write("Select a choice from the menu: ");
@@ -85,6 +88,7 @@ class Program
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             outputFile.WriteLine(totalPoints);
+            outputFile.WriteLine(badges);
             foreach (Goal g in goals)
             {
                 outputFile.WriteLine(g.SaveFileString());
@@ -98,7 +102,8 @@ class Program
         string fileName = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(fileName);
         totalPoints = int.Parse(lines[0]);
-        for (int i = 1; i < lines.Length; i++)
+        badges = lines[1];
+        for (int i = 2; i < lines.Length; i++)
         {
             string[] parts = lines[i].Split(":");
             if (parts[0].Equals("SimpleGoal"))
@@ -129,6 +134,35 @@ class Program
         int goalChoice = int.Parse(Console.ReadLine());
         totalPoints += goals[goalChoice - 1].RecordEvent();
         Console.WriteLine($"You now have {totalPoints} points.");
+        AwardBadges(totalPoints);
         return goals;
+    }
+
+    public static void AwardBadges(int totalPoints)
+    {
+        if (totalPoints >= 5000)
+        {
+            if (!badges.Contains("Leopard"))
+            {
+                Console.WriteLine("Congratulations! You earned the Leopard badge!");
+                badges += "  Leopard  ";
+            }
+        }
+        if (totalPoints >= 2500)
+        {
+            if (!badges.Contains("Teddy Bear"))
+            {
+                Console.WriteLine("Congratulations! You earned the Teddy Bear badge!");
+                badges += "  Teddy Bear  ";
+            }
+        }
+        if (totalPoints >= 1000)
+        {
+            if (!badges.Contains("Bunny"))
+            {
+                Console.WriteLine("Congratulations! You earned the Bunny badge!");
+                badges += "  Bunny  ";
+            }
+        }
     }
 }
