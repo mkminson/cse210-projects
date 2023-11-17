@@ -6,7 +6,6 @@ public abstract class Goal
     protected string _goalName = "";
     protected string _goalDescription = "";
     protected int _goalPoints = 0;
-    //protected int _totalPoints = 0;
     protected bool _completed = false;
     protected string _type = "";
     public Goal()
@@ -26,7 +25,6 @@ public abstract class Goal
         _goalPoints = points;
         _completed = completed;
     }
-
     public virtual void SetGoalAttributes()
     {
         Console.Write("What is the name of your goal? ");
@@ -36,7 +34,6 @@ public abstract class Goal
         Console.Write("What is the amount of points associated with this goal? ");
         _goalPoints = int.Parse(Console.ReadLine());
     }
-
     public virtual void DisplayGoal()
     {
         if (_completed == true)

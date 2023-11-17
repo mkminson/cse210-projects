@@ -16,7 +16,6 @@ public class Simple : Goal
         Console.WriteLine($"Congratulations! You have earned {_goalPoints} points!");
         return _goalPoints;
     }
-
     public override bool IsComplete()
     {
         return base.IsComplete();

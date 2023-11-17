@@ -16,7 +16,6 @@ public class Checklist : Goal
         _timesCompleted = timesCompleted;
         _type = "ChecklistGoal";
     }
-
     public override void SetGoalAttributes()
     {
         Console.Write("What is the name of your goal? ");
@@ -30,7 +29,6 @@ public class Checklist : Goal
         Console.Write("What is the bonus for accomplishing it that many times? ");
         _bonusPoints = int.Parse(Console.ReadLine());
     }
-
     public override void DisplayGoal()
     {
         if (_timesCompleted == _bonusTimes)
@@ -58,7 +56,6 @@ public class Checklist : Goal
             return _bonusPoints + _goalPoints;
         }
     }
-
     public override bool IsComplete()
     {
         return base.IsComplete();
