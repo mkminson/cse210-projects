@@ -8,7 +8,7 @@ class Program
         Console.Clear();
         while (true)
         {
-            Console.Write("Your options are as follows:\r\n    1. Create a note\r\n    2. Save note\r\n    3. Load note\r\n    4. Display note\r\n    5. Quit\r\nWhat would you like to do? ");
+            Console.Write("Your options are as follows:\r\n    1. Create a note\r\n    2. Save note to a file\r\n    3. Load note from a file\r\n    4. Display note\r\n    5. Quit\r\nWhat would you like to do? ");
             int selection = int.Parse(Console.ReadLine());
             if (selection == 1)
             {
@@ -34,11 +34,11 @@ class Program
             }
             else if (selection == 2)
             {
-
+                //code to save to a file here
             }
             else if (selection == 3)
             {
-
+                //code to load from a file here
             }
             else if (selection == 4)
             {
