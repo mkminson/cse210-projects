@@ -14,7 +14,7 @@ class TherEx : Activity
     }
     public override void SpecificActivity()
     {
-        Console.Write("The therapeutic exercises include:\r\n    1. Bicep Curls\r\n    2. Tricep Extensions\r\n    3. Lateral Raises\r\n    4. NuStep Machine\r\nWhich exercise do you want to add to your note? ");
+        Console.Write("\r\nThe therapeutic exercises include:\r\n    1. Bicep Curls\r\n    2. Tricep Extensions\r\n    3. Lateral Raises\r\n    4. NuStep Machine\r\nWhich exercise do you want to add to your note? ");
         int choice = int.Parse(Console.ReadLine());
         if (choice == 1)
         {
@@ -34,14 +34,14 @@ class TherEx : Activity
         else if (choice == 4)
         {
             _activityName = "NuStep Machine";
-            Console.Write("What was the machine resistance level? ");
+            Console.Write("\r\nWhat was the machine resistance level (1-6)? ");
             _resistance = int.Parse(Console.ReadLine());
             Console.Write("How many minutes did they use the NuStep machine? ");
             _time = float.Parse(Console.ReadLine());
         }
         else
         {
-            Console.WriteLine("Please select a number 1-4.");
+            Console.WriteLine("\r\nPlease select a number 1-4.");
         }
     }
     public override string DisplayInfo()
@@ -49,11 +49,11 @@ class TherEx : Activity
         string info = "";
         if (_activityName == "NuStep Machine")
         {
-            info = $"Activity : {_activityName}, Resistance level : {_resistance}, Time using machine : {_time}";
+            info = $"Activity name : {_activityName}; Resistance level : {_resistance}; Time using machine : {_time}";
         }
         else
         {
-            info = $"Activity : {_activityName}, Sets : {_sets}, Reps : {_reps}, Weight : {_weight}";
+            info = $"Activity name : {_activityName}; Sets : {_sets}; Reps : {_reps}; Weight : {_weight}";
         }
         return info;
     }

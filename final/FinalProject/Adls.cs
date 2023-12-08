@@ -8,7 +8,7 @@ public class Adls : Activity
     }
     public override void SpecificActivity()
     {
-        Console.Write("The ADL activities include:\r\n    1. Functional mobility\r\n    2. Toileting\r\n    3. Grooming\r\n    4. Dressing\r\nWhich activity do you want to add to your note? ");
+        Console.Write("\r\nThe ADL activities include:\r\n    1. Functional mobility\r\n    2. Toileting\r\n    3. Grooming\r\n    4. Dressing\r\nWhich activity do you want to add to your note? ");
         int activityName = int.Parse(Console.ReadLine());
         if (activityName == 1)
         {
@@ -36,10 +36,10 @@ public class Adls : Activity
     }
     public override string DisplayInfo()
     {
-        string activityInfo = $"Activity name : {_activityName}, Assistance Level : {_assistLevel}, Breaks needed : {_breaksNeeded}";
+        string activityInfo = $"Activity name : {_activityName}; Assistance Level : {_assistLevel}; Breaks needed : {_breaksNeeded}";
         if (_breaksNeeded == true)
         {
-            activityInfo += $", Time before break needed : {_timeBeforeBreak}, Breaks taken : {_breaksTaken}";
+            activityInfo += $"; Time before break needed : {_timeBeforeBreak}; Breaks taken : {_breaksTaken}";
         }
         return activityInfo;
     }
